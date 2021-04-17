@@ -1,6 +1,7 @@
 package pl.pjatk.kackac;
 
 
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -9,7 +10,12 @@ import java.util.List;
 @Configuration
 public class DataConfig {
 
+
     @Bean
+    @ConditionalOnProperty(
+            value = "my.boolean.value",
+            havingValue = "true"
+    )
     public  MySimplePojo mySimplePojo(){
         return new MySimplePojo("Some String Value");
     }
@@ -24,13 +30,15 @@ public class DataConfig {
         return List.of("5", "4", "3", "2", "1");
     }
 
-    @Bean
-    public List<MySimplePojo> mySimplePojoList(MySimplePojo mySimplePojo){
-        return List.of(mySimplePojo);
-    }
+//    @Bean
+//    public List<MySimplePojo> mySimplePojoList(MySimplePojo mySimplePojo){
+//        return List.of(mySimplePojo);
+//    }
+//
+//    @Bean
+//    public Integer someInt() {
+//        return 1;
+//    }
 
-    @Bean
-    public Integer someInt() {
-        return 1;
-    }
+
 }

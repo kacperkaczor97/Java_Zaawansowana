@@ -3,23 +3,26 @@ package pl.pjatk.kackac;
 import java.sql.SQLOutput;
 
 public class MySimplePojo {
-    private String someStringValue;
+    private final String string;
+
 
     public MySimplePojo(String someStringValue) {
-        this.someStringValue = someStringValue;
-        System.out.println("IM HERE");
+        this.string = someStringValue;
+        System.out.println("----------------------");
+        System.out.println("Helo From MySimplePojo");
+        System.out.println("----------------------");
     }
 
     public String getSomeStringValue() {
-        return someStringValue;
+        return string;
     }
 
     public void printOutMe() {
-        System.out.println("Value from MySimplePojo is: " + someStringValue);
+        System.out.println("Value from MySimplePojo is: " + string);
     }
 
     @Override
     public String toString() {
-        return "MySimplePojo{" + "someStringValue='" + someStringValue + '\'' + '}';
+        return "MySimplePojo{" + "someStringValue='" + string + '\'' + '}';
     }
 }
